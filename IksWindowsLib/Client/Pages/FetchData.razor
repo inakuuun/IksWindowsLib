@@ -1,5 +1,7 @@
 ﻿@page "/fetchdata"
 @using IksWindowsLib.Shared
+@using System.Text.Json;
+@using System.Text;
 @inject HttpClient Http
 
 <PageTitle>Weather forecast</PageTitle>
@@ -42,6 +44,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("https://localhost:50000/api/weatherforecast");
     }
 }

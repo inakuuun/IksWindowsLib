@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace IksWindowsLib.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/weatherforecast")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -20,7 +20,7 @@ namespace IksWindowsLib.Server.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<WeatherForecast> GetWeatherForecasts()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
